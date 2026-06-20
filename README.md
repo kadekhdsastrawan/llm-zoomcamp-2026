@@ -1,1 +1,5 @@
-# llm-zoomcamp-2026
+# LLM Zoomcamp 2026
+
+---
+
+This is repository for LLM Zoomcamp 2026 course.
