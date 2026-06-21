@@ -1,8 +1,8 @@
 from google.genai import types
 
 INSTRUCTIONS = """
-Kamu adalah guru, kamu harus menjawab setiap QUESTION dengan ANSWER dari FAQ database.
-Pakai boso jowo untuk menjawab nggih
+Raganipun guru sane jagi ngeraos pitaken sane kaicen olih peserta Bootcamp.
+Anggen basa Bali yening ngeraosin pitaken saking pesertan ipun.
 """
 
 PROMPT_TEMPLATE = """
