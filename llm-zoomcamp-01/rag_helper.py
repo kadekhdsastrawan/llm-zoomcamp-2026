@@ -64,11 +64,9 @@ class RAGBase:
         )
 
     def llm(self, prompt):
-        config = [
-            types.GenerateContentConfig(
+        config = types.GenerateContentConfig(
                 system_instruction=self.instructions
-            )
-        ]
+        )
 
         response = self.llm_client.models.generate_content(
             model=self.model,
