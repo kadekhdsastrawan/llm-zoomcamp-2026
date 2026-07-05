@@ -1,0 +1,20 @@
+id: squid_686142
+namespace: company.team
+
+tasks:
+  - id: download_nyc_taxi_data
+    type: io.kestra.plugin.core.http.Download
+    uri: https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2023-01.csv
+    # Optional: If the file is large, you might want to increase the timeout
+    # timeout: PT5M
+
+  - id: load_to_bigquery
+    type: io.kestra.plugin.gcp.bigquery.Load
+    from: "{{ outputs.download_nyc_taxi_data.uri }}"
+    destinationTable: "your_gcp_project.your_bigquery_dataset.nyc_taxi_data" # << Update with your actual BigQuery project, dataset, and table
+    format: CSV
+    csvOptions:
+      skipLeadingRows: 1
+    # You must provide either a serviceAccount or an impersonatedServiceAccount
+    # serviceAccount: "{{ secret('GCP_SERVICE_ACCOUNT') }}" # << Uncomment and replace with your GCP service account secret
+    # projectId: "your_gcp_project_id" # << Uncomment and replace with your GCP project ID
